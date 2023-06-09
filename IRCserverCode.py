@@ -78,7 +78,7 @@ def JOIN(username, roomname):
             room.bynames.append(username)
             user.currRoom = roomname
             user.roomInfo.append(room)
-            transmission(f'{username} joined the room', roomname)
+            TRANSMIT(f'{username} joined the room', roomname)
 
 '''
 SWAP switches users between rooms given a room number. Accounts for duplicate user profiles in rooms
@@ -111,7 +111,7 @@ def LEAVE(username):
         user.roomInfo.remove(room)
         roomInfo[room_num].ppl.remove(name)
         roomInfo[room_num].bynames.remove(username)
-        transmission(f'{username} left the room', room_num)
+        TRANSMIT(f'{username} left the room', room_num)
         name.send('You left the room'.encode('utf-8'))
 
 
@@ -145,7 +145,7 @@ def QUIT(username):
         print(room.ppl)
         room.bynames.remove(username)
         print(room.bynames)
-        transmission(f'{username} left the room', room.name)
+        TRANSMIT(f'{username} left the room', room.name)
 
 '''
 clientInterface serves to read the client input and is the decision making command processing portion of the program
@@ -180,7 +180,7 @@ def clientInterface(client):
                     name.send(''.encode('utf-8'))
                 else:
                     text = ' '.join(args[1:])
-                    transmission(f'{args[0]}: {text}',roomUserList[args[0]].currRoom)
+                    TRANSMIT(f'{args[0]}: {text}',roomUserList[args[0]].currRoom)
 
         except Exception as e:
             print("exception occured ", e)
