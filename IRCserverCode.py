@@ -167,7 +167,7 @@ def clientInterface(client):
                 JOIN(args[0], ' '.join(args[2:]))
             elif '$leave' in message:
                 LEAVE(args[0])
-            elif '$switch' in message:
+            elif '$swap' in message:
                 SWAP(args[0], args[2])
             elif '$dm' in message:
                 DM(message)
