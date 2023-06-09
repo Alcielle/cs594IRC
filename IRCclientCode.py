@@ -46,7 +46,7 @@ threads = []
 #Socket feature is used to connect to a socket and initiate network connection at said socket
 client = socket.socket()
 #Anything after 40000 is fine. This is a hardcoded connection on a known private line
-client.connect((socket.gethostname(), 55599))
+client.connect((socket.gethostname(), 59400))
 #the multithreading is set up
 read_thread = threading.Thread(target=READ)
 read_thread.start()
