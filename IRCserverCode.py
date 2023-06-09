@@ -128,8 +128,8 @@ def DM(message):
         reciever = users[user]
         #allows for long messages to be sent simulating chat function
         text = ' '.join(args[3:])
-        reciever.send(f'[personal message] {args[0]}: {text}'.encode('utf-8'))
-        sender.send(f'[personal message] {args[0]}: {text}'.encode('utf-8'))
+        reciever.send(f'[DM] {args[0]}: {text}'.encode('utf-8'))
+        sender.send(f'[DM] {args[0]}: {text}'.encode('utf-8'))
 
 '''
 QUIT ends the session for the given user and exits the program. Other users are informed said user has left the session
@@ -169,7 +169,7 @@ def clientInterface(client):
                 LEAVE(args[0])
             elif '$switch' in message:
                 SWAP(args[0], args[2])
-            elif '$personal' in message:
+            elif '$dm' in message:
                 DM(message)
             elif '$quit' in message:
                 QUIT(args[0])
