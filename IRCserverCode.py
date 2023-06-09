@@ -198,7 +198,7 @@ serverProcessing handles user commands, server details, user information and gen
 '''
 def serverProcessing():
     while True:
-        client, address = server_details.accept()
+        client, address = server.accept()
         print(f'connected with {str(address)}')
         print(client)
         client.send('NICK'.encode('utf-8'))
