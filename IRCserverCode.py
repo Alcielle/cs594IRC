@@ -146,6 +146,13 @@ def QUIT(username):
         room.bynames.remove(username)
         print(room.bynames)
         TRANSMIT(f'{username} left the room', room.name)
+'''
+broadcastMessage sends the given inputed message taken in as the slice after argument 0 to all the active clients
+'''
+def broadcastMessage(username, message):
+    message = '[Broadcast from '+username+'] '+ " ".join(message[1:])
+    for client in clientList:
+        client.send(str(message).encode('utf-8'))
 
 '''
 clientInterface serves to read the client input and is the decision making command processing portion of the program
@@ -171,6 +178,8 @@ def clientInterface(client):
                 SWAP(args[0], args[2])
             elif '$dm' in message:
                 DM(message)
+            elif '$broadcast' in message:
+                broadcastMessage(args[0],args[1:])
             elif '$quit' in message:
                 QUIT(args[0])
                 name.send('QUIT'.encode('utf-8'))
