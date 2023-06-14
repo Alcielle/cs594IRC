@@ -26,7 +26,8 @@ commands = '\nWelcome to AAIRC. What would you like to do?\n\n' \
                '4.Type "$swap roomname" to switch to given roomname\n' \
                '5.Type "$dm name message" to send a direct message to another user with username "name"\n' \
                '6.Type "$help" to list all possible commands at any given moment\n' \
-               '7.Type "$quit" to exit the program and close the user session\n' 
+               '7.Type "$quit" to exit the program and close the user session\n' \
+               '8.Type "$broadcast message" to broadcast the message to all the active users.\n'
 
 #The lists used for client names and dicts used for room and user details
 clientList = []
